@@ -60,11 +60,15 @@ class Application extends BaseApplication
          * Only try to load DebugKit in development mode
          * Debug Kit should not be installed on a production system
          */
+        Configure::write('DebugKit.ignoreAuthorization', true);
         if (Configure::read('debug')) {
-            $this->addPlugin('DebugKit');
+            //$this->addPlugin('DebugKit');
         }
 
         // Load more plugins here
+
+        $this->addPlugin(\CakeDC\Users\Plugin::class);
+
     }
 
     /**
