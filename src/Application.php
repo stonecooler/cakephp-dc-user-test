@@ -47,6 +47,10 @@ class Application extends BaseApplication
         // Call parent to load bootstrap from files.
         parent::bootstrap();
 
+//        Configure::write('Auth.AuthenticationComponent.load', false);
+        $this->addPlugin(\CakeDC\Users\Plugin::class);
+//        Configure::write('Auth.AuthenticationComponent.load', false);
+
         if (PHP_SAPI === 'cli') {
             $this->bootstrapCli();
         } else {
@@ -62,13 +66,10 @@ class Application extends BaseApplication
          */
         Configure::write('DebugKit.ignoreAuthorization', true);
         if (Configure::read('debug')) {
-            //$this->addPlugin('DebugKit');
+           $this->addPlugin('DebugKit');
         }
 
         // Load more plugins here
-
-        $this->addPlugin(\CakeDC\Users\Plugin::class);
-
     }
 
     /**
@@ -140,5 +141,8 @@ class Application extends BaseApplication
         $this->addPlugin('Migrations');
 
         // Load more plugins here
+
+        $this->addPlugin('Migrations');
+        $this->addPlugin('Authorization');
     }
 }
