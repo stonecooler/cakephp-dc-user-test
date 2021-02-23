@@ -47,9 +47,7 @@ class Application extends BaseApplication
         // Call parent to load bootstrap from files.
         parent::bootstrap();
 
-//        Configure::write('Auth.AuthenticationComponent.load', false);
         $this->addPlugin(\CakeDC\Users\Plugin::class);
-//        Configure::write('Auth.AuthenticationComponent.load', false);
 
         if (PHP_SAPI === 'cli') {
             $this->bootstrapCli();
