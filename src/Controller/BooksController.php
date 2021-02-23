@@ -3,9 +3,6 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use Cake\Event\EventInterface;
-use Cake\Log\Log;
-
 /**
  * Books Controller
  *
@@ -23,6 +20,7 @@ class BooksController extends AppController
     {
         dd('this is a public action, users not authenticated will be able to see it');
     }
+
     /**
      * Index method
      *

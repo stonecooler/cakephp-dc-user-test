@@ -64,7 +64,7 @@ class Application extends BaseApplication
          */
         Configure::write('DebugKit.ignoreAuthorization', true);
         if (Configure::read('debug')) {
-           $this->addPlugin('DebugKit');
+            $this->addPlugin('DebugKit');
         }
 
         // Load more plugins here

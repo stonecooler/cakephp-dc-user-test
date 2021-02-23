@@ -54,7 +54,7 @@ $permissions = [
         'plugin' => null,
         'controller' => 'Books',
         'action' => [
-            'public'
+            'public',
         ],
         'bypassAuth' => true,
     ],
@@ -79,7 +79,7 @@ $permissions = [
             'requestResetPassword',
             // UserValidationTrait used in PasswordManagementTrait
             'resendTokenValidation',
-            'linkSocial'
+            'linkSocial',
         ],
         'bypassAuth' => true,
     ],
@@ -121,7 +121,7 @@ $permissions = [
             }
 
             return false;
-        }
+        },
     ],
     //all roles allowed to Pages/display
     [
@@ -139,5 +139,5 @@ foreach ($publicPages as $permission) {
 }
 
 return [
-    'CakeDC/Auth.permissions' => $permissions
+    'CakeDC/Auth.permissions' => $permissions,
 ];
