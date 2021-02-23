@@ -12,6 +12,12 @@
             <?= $this->Form->postLink(__('Delete Book'), ['action' => 'delete', $book->id], ['confirm' => __('Are you sure you want to delete # {0}?', $book->id), 'class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('List Books'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('New Book'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+            <br/>
+            <?= $this->Html->link(__('Logout'), [
+                "plugin" => "CakeDC/Users",
+                "controller" => "Users",
+                "action" => "logout"
+            ], ['class' => 'side-nav-item']); ?>
         </div>
     </aside>
     <div class="column-responsive column-80">

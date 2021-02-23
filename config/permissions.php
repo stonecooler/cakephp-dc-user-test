@@ -48,16 +48,36 @@
         }
     ],
  */
+
+use Cake\Core\Configure;
+use Cake\Http\ServerRequest;
+use Cake\Utility\Hash;
+
 $permissions = [
-    // this rule to allow public access to /books/public
+    // this rule to allow public access to /books/index
     [
         'plugin' => null,
         'controller' => 'Books',
         'action' => [
-            'public',
+            'index',
         ],
         'bypassAuth' => true,
     ],
+    [
+        'plugin' => null,
+        'controller' => 'Pages',
+        'action' => '*',
+        'bypassAuth' => true,
+    ],
+    [
+        'plugin' => 'DebugKit',
+        'controller' => '*',
+        'action' => '*',
+        'bypassAuth' => true,
+    ],
+
+
+
     //all bypass
     [
         'prefix' => false,
@@ -114,8 +134,8 @@ $permissions = [
         'plugin' => 'CakeDC/Users',
         'controller' => 'Users',
         'action' => 'resetOneTimePasswordAuthenticator',
-        'allowed' => function (array $user, $role, \Cake\Http\ServerRequest $request) {
-            $userId = \Cake\Utility\Hash::get($request->getAttribute('params'), 'pass.0');
+        'allowed' => function (array $user, $role, ServerRequest $request) {
+            $userId = Hash::get($request->getAttribute('params'), 'pass.0');
             if (!empty($userId) && !empty($user)) {
                 return $userId === $user['id'];
             }
@@ -131,7 +151,7 @@ $permissions = [
     ],
 ];
 
-$preload = \Cake\Core\Configure::read('CakeDC/Auth.preloadPermissions', []);
+$preload = Configure::read('CakeDC/Auth.preloadPermissions', []);
 $publicPages = $preload['public'] ?? [];
 foreach ($publicPages as $permission) {
     $permission['bypassAuth'] = true;

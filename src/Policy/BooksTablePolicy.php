@@ -18,6 +18,13 @@ class BooksTablePolicy //implements BeforePolicyInterface
 //        return true;
 //    }
 
+    public function canView(IdentityInterface $user = null)
+    {
+        Log::debug("--- BooksTablePolicy ----");
+        Log::debug(print_r($user,true));
+        return true;
+    }
+
     public function canIndex(IdentityInterface $user = null)
     {
         Log::debug("--- BooksTablePolicy ----");

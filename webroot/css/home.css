@@ -66,6 +66,10 @@ hr {
     color: #d33d44;
     content: "\0057";
 }
+.sst:before {
+    content: "\0068";
+}
+
 .cake-error {
     padding: 10px;
     margin: 10px 0;

@@ -47,6 +47,7 @@ class Application extends BaseApplication
         // Call parent to load bootstrap from files.
         parent::bootstrap();
 
+        Configure::write('Users.config', ['users']);
         $this->addPlugin(\CakeDC\Users\Plugin::class);
 
         if (PHP_SAPI === 'cli') {
